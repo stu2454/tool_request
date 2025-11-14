@@ -8,6 +8,14 @@ st.set_page_config(
     layout="wide",
 )
 
+with st.sidebar:
+    st.markdown("""
+    <div style='padding-top: 10px; padding-bottom: 6px;'>
+        <h2 style='margin-bottom: -5px; color: #6D3078;'>Start here</h2>
+        <hr style='margin-top: 6px; margin-bottom: 12px;'>
+    </div>
+    """, unsafe_allow_html=True)
+
 # ------------------------------------------------------------
 # Global CSS — Bulletproof Light Mode + NDIA Branding
 # ------------------------------------------------------------
