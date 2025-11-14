@@ -1,108 +1,140 @@
 import streamlit as st
 
+# NDIA heading component
+def section_heading(text):
+    st.markdown(f"### <span style='color:#6D3078;'>{text}</span>", unsafe_allow_html=True)
+
 st.title("Roadmap & Next Steps")
+
+# -------------------------
+# High-Level Plan
+# -------------------------
+section_heading("High-Level Plan")
 
 st.markdown("""
 <div class="card">
-    <div class="pill">High-Level Plan</div>
-    <h3>How we could progress this work in low-risk stages</h3>
+    <div class="pill">Overview</div>
+    <h3>A staged, low-risk pathway</h3>
     <p>
-    The intent is not to launch a large programme immediately, but to proceed in small, controlled steps. 
-    Each phase generates evidence and artefacts that can be used to decide whether and how to proceed.
+    The intent is not to initiate a large programme immediately, but to proceed in small, 
+    well-governed steps. Each phase generates evidence and artefacts that support future 
+    decision-making.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Phase 1
+# -------------------------
+section_heading("Phase 1 — Enable the Toolset (0–4 weeks)")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Phase 1</div>
-    <h3>Enable the toolset (0–4 weeks)</h3>
+    <h3>Establish the foundation</h3>
     <ul>
-        <li>Confirm support from Markets Division leadership (GM, Branch Manager, Director).</li>
-        <li>Submit formal request to Digital/IT for the controlled prototyping environment.</li>
+        <li>Confirm endorsement from Markets Division leadership.</li>
+        <li>Submit a formal request to Digital/IT for a controlled prototyping environment.</li>
         <li>Provision:
             <ul>
-                <li>VS Code and GitHub Enterprise / internal Git repositories</li>
-                <li>Docker for containerised prototypes</li>
-                <li>Python runtime and core libraries</li>
-                <li>Controlled AWS Bedrock access (LLMs + embeddings)</li>
+                <li>VS Code</li>
+                <li>GitHub Enterprise / internal Git repository</li>
+                <li>Docker</li>
+                <li>Python runtime</li>
+                <li>Controlled access to AWS Bedrock (LLMs + embeddings)</li>
             </ul>
         </li>
-        <li>Agree basic governance settings (IAM roles, logging, coding standards).</li>
+        <li>Agree basic governance settings and IAM roles.</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Phase 2
+# -------------------------
+section_heading("Phase 2 — First Digital PAPL Demonstrator (4–10 weeks)")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Phase 2</div>
-    <h3>First digital PAPL demonstrator (4–10 weeks)</h3>
+    <h3>Build a minimal, functional proof of concept</h3>
     <ul>
-        <li>Select a well-bounded section of PAPL or a code guide as a pilot.</li>
-        <li>Convert that section into structured formats (e.g. JSON + Markdown).</li>
-        <li>Build a simple API or data layer to serve the structured artefact.</li>
+        <li>Select a well-bounded section of PAPL or a Code Guide for conversion.</li>
+        <li>Transform the section into structured JSON + Markdown.</li>
+        <li>Build a simple API/data layer to serve the structured artefact.</li>
         <li>Create:
             <ul>
-                <li>a provider-focused view (compliance and quoting)</li>
-                <li>a planner-focused view (decision support)</li>
-                <li>a participant-friendly view (plain-language explanation)</li>
+                <li>a provider-focused view</li>
+                <li>a planner decision-support view</li>
+                <li>a participant-friendly plain-language view</li>
             </ul>
         </li>
-        <li>Demonstrate the prototype to Markets Division leadership and key stakeholders.</li>
+        <li>Demonstrate to leadership within Markets Delivery and Strategy.</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Phase 3
+# -------------------------
+section_heading("Phase 3 — Evaluation & Refinement (10–14 weeks)")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Phase 3</div>
-    <h3>Evaluation and refinement (10–14 weeks)</h3>
+    <h3>Gather insights and iterate</h3>
     <ul>
-        <li>Gather feedback from:
+        <li>Seek feedback from:
             <ul>
-                <li>Markets Strategy and Pricing teams</li>
-                <li>frontline planners / LACs</li>
-                <li>selected providers and internal advisory groups (where appropriate)</li>
+                <li>Markets Strategy & Pricing Teams</li>
+                <li>Frontline planners or LACs (internal demonstration only)</li>
+                <li>Internal advisory groups</li>
             </ul>
         </li>
-        <li>Assess:
+        <li>Assess improvements to:
             <ul>
-                <li>clarity improvements compared to static documents</li>
-                <li>potential reductions in manual effort</li>
-                <li>opportunities for better market monitoring and stewardship</li>
+                <li>clarity and interpretability</li>
+                <li>manual effort reduction</li>
+                <li>market monitoring potential</li>
             </ul>
         </li>
-        <li>Refine the prototype based on feedback.</li>
+        <li>Refine the prototype based on findings.</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Phase 4
+# -------------------------
+section_heading("Phase 4 — Scaling Options (14+ weeks)")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Phase 4</div>
-    <h3>Options for scaling and formal investment (14+ weeks)</h3>
+    <h3>Translate insights into strategic decisions</h3>
     <ul>
-        <li>Use the evidence from the prototype to outline options:
+        <li>Use the prototype and feedback to propose pathways:
             <ul>
-                <li>no further action (learning only)</li>
-                <li>targeted enhancements to internal tools (e.g. planner guidance)</li>
-                <li>a broader digital-first pricing artefact programme, if justified</li>
+                <li>no further action (prototype value only)</li>
+                <li>targeted enhancements to internal guidance tools</li>
+                <li>a broader digital-first pricing artefact programme</li>
             </ul>
         </li>
-        <li>Identify dependencies (ICT capacity, policy changes, data integration).</li>
-        <li>Prepare input into any future business case or strategic initiative.</li>
+        <li>Identify dependencies (ICT capacity, data integration, policy considerations).</li>
+        <li>Prepare material for any future business case, if warranted.</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Immediate Next Step
+# -------------------------
+section_heading("Immediate Next Step")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Immediate Next Step</div>
-    <h3>What we need to do first</h3>
+    <div class="pill">Action</div>
+    <h3>What we must do first</h3>
     <p>
-    The immediate next step is for Markets Division leadership to confirm support for a controlled 
-    prototyping environment and to endorse a request to Digital/IT for the required tools. 
-    This prototype site can be used as part of that conversation to show what is possible.
+    The immediate next step is for Markets Division leadership to confirm support for the 
+    required toolset and endorse a formal request to Digital/IT.  
+    This prototype site itself forms part of that evidence base.
     </p>
 </div>
 """, unsafe_allow_html=True)

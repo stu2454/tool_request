@@ -1,136 +1,146 @@
 import streamlit as st
 
+# NDIA heading component
+def section_heading(text):
+    st.markdown(f"### <span style='color:#6D3078;'>{text}</span>", unsafe_allow_html=True)
+
 st.title("Stakeholder View Matrix")
+
+# -------------------------
+# Overview
+# -------------------------
+section_heading("Overview")
 
 st.markdown("""
 <div class="card">
-    <div class="pill">Overview</div>
-    <h3>How digital-first pricing artefacts support different stakeholders</h3>
+    <h3>How digital-first artefacts support different users</h3>
     <p>
-    A key advantage of structured, digital-first pricing artefacts is the ability to present 
-    different views from a single source of truth. The same underlying rules can be expressed 
-    differently for participants, providers, planners, advocates, analysts and innovators.
+    Structured, digital-first pricing artefacts allow NDIA to present different views for different audiences —
+    all derived from the same authoritative rules. This supports transparency, consistency and market stewardship.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
 try:
-    st.image(
-        "assets/diagram_matrix.png",
-        caption="Stakeholder View Matrix – different audiences, one structured source.",
-        use_column_width=True,
-    )
-except Exception:
-    st.info("Add 'diagram_matrix.png' to the assets folder to display the matrix diagram.")
+    st.image("assets/diagram_matrix.png", caption="Stakeholder View Matrix")
+except:
+    st.info("Add diagram_matrix.png to assets/ to display this image.")
 
-# Detailed cards per stakeholder
+# -------------------------
+# Participants & Families
+# -------------------------
+section_heading("Participants & Families")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Participants & Families</div>
-    <h3>Plain language and transparency</h3>
-    <p>
-    Participants and their families often encounter pricing information through layers of interpretation. 
-    Digital-first artefacts allow NDIA to present:
-    </p>
+    <h3>Plain language guidance and improved transparency</h3>
+    <p>Digital-first artefacts help participants by enabling:</p>
     <ul>
-        <li>clear, accessible explanations of what price limits mean</li>
-        <li>context about typical ranges and what is considered reasonable</li>
-        <li>better support during planning conversations and reviews</li>
+        <li>clear, accessible explanations</li>
+        <li>support in planning conversations</li>
+        <li>better understanding of reasonable price expectations</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Providers & New Entrants
+# -------------------------
+section_heading("Providers & New Entrants")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Providers & New Entrants</div>
-    <h3>Clarity, predictability and compliance</h3>
-    <p>
-    Providers need to understand not just the price limits, but the logic behind them. Digital-first artefacts can:
-    </p>
+    <h3>Clarity and predictability</h3>
+    <p>Providers benefit from:</p>
     <ul>
-        <li>reduce ambiguity and conflicting interpretations</li>
-        <li>enable simple self-check tools for quotes and claims</li>
-        <li>support new entrants to understand pricing expectations quickly</li>
+        <li>consistent interpretation of rules</li>
+        <li>simple compliance and quoting tools</li>
+        <li>clearer signals to support market entry</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Planners & LACs
+# -------------------------
+section_heading("Planners & LACs")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Planners & LACs</div>
     <h3>Decision support and consistency</h3>
-    <p>
-    Planners and LACs make daily decisions that depend on accurate, consistent interpretation of pricing rules. 
-    Digital-first artefacts can support:
-    </p>
+    <p>Planners benefit through:</p>
     <ul>
-        <li>embedded guidance and prompts at the point of decision</li>
+        <li>embedded guidance at point of decision</li>
+        <li>less reliance on manual document search</li>
         <li>more consistent application of rules across regions</li>
-        <li>reduced need to manually hunt through long documents</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Advocacy & Peak Bodies
+# -------------------------
+section_heading("Advocacy & Peak Bodies")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Advocacy & Peak Bodies</div>
-    <h3>Transparency and engagement</h3>
-    <p>
-    Advocacy organisations and peak bodies need a clear understanding of how pricing works in order to represent 
-    participants and providers effectively. Structured artefacts provide:
-    </p>
+    <h3>Transparency to support consultation</h3>
+    <p>Structured artefacts provide:</p>
     <ul>
-        <li>a stable reference point for policy submissions and feedback</li>
-        <li>greater transparency around the logic of pricing decisions</li>
-        <li>better tools to test scenarios and highlight issues</li>
+        <li>a stable reference point for submissions</li>
+        <li>clarity on pricing logic</li>
+        <li>better evidence for policy discussions</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
+# -------------------------
+# Researchers & Analysts
+# -------------------------
+section_heading("Researchers & Analysts")
+
 st.markdown("""
 <div class="card">
-    <div class="pill">Researchers & Analysts</div>
-    <h3>Structured data for insight and evaluation</h3>
-    <p>
-    Pricing artefacts expressed as structured data enable richer analysis. This can support:
-    </p>
+    <h3>Data for insight and evaluation</h3>
+    <p>Digital-first artefacts allow for:</p>
     <ul>
-        <li>evaluation of pricing settings over time</li>
-        <li>identification of patterns in utilisation and access</li>
-        <li>better understanding of how pricing influences market behaviour</li>
+        <li>longitudinal analysis of pricing settings</li>
+        <li>understanding market behaviour</li>
+        <li>identifying emerging patterns</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="card">
-    <div class="pill">Technology Innovators</div>
-    <h3>Safe, authoritative foundations for tools</h3>
-    <p>
-    When NDIA provides structured, authoritative guidance, innovators can build:
-    </p>
-    <ul>
-        <li>planning aids and calculators</li>
-        <li>accessibility-focused tools for participants with complex needs</li>
-        <li>compliance-support tools for providers</li>
-    </ul>
-    <p>
-    This reduces the risk of third parties scraping or re-interpreting static PDFs inappropriately.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+# -------------------------
+# Innovators
+# -------------------------
+section_heading("Technology Innovators")
 
 st.markdown("""
 <div class="card">
-    <div class="pill">NDIA Internal Market Teams</div>
-    <h3>Stewardship and early warning</h3>
-    <p>
-    Finally, digital-first artefacts support NDIA’s own stewardship responsibilities by:
-    </p>
+    <h3>Support for safe third-party tools</h3>
+    <p>Structured, authoritative guidance reduces:</p>
     <ul>
-        <li>making it easier to connect pricing rules to claims and market data</li>
-        <li>providing clearer signals of stress or distortion in the market</li>
-        <li>supporting quicker, more targeted interventions when issues arise</li>
+        <li>reliance on scraping static PDFs</li>
+        <li>misinterpretation of pricing rules</li>
+        <li>risks from unverified “AI NDIS helper” tools</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
+
+# -------------------------
+# NDIA Internal
+# -------------------------
+section_heading("NDIA Internal Market Teams")
+
+st.markdown("""
+<div class="card">
+    <h3>Stronger market stewardship</h3>
+    <p>Internal teams gain:</p>
+    <ul>
+        <li>clearer links between pricing rules and market behaviour</li>
+        <li>earlier visibility of market stress</li>
+        <li>better signals for stewardship interventions</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
