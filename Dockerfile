@@ -55,4 +55,4 @@ EXPOSE 10000
 # ------------------------------
 # 9. Run the app
 # ------------------------------
-CMD ["streamlit", "run", "streamlit_app.py"]
+CMD ["streamlit", "run", "0_Start_here.py"]
