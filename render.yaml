@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: tool-request
+    env: docker
+    plan: starter
+    autoDeploy: true
+    repo: https://github.com/stu2454/tool_request
+    branch: main
+    dockerfilePath: Dockerfile
+    healthCheckPath: /
