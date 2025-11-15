@@ -1,40 +1,58 @@
-# Use official lightweight Python image
+# ------------------------------
+# 1. Base image
+# ------------------------------
 FROM python:3.10-slim
 
-# Set working directory
+# ------------------------------
+# 2. Working directory
+# ------------------------------
 WORKDIR /app
 
-# Install OS-level dependencies
+# ------------------------------
+# 3. Install OS-level dependencies
+# ------------------------------
 RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first (use caching)
+# ------------------------------
+# 4. Copy requirements first for caching
+# ------------------------------
 COPY requirements.txt .
 
-# Install Python packages
+# ------------------------------
+# 5. Install Python dependencies
+# ------------------------------
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
+# ------------------------------
+# 6. Copy your entire app repo
+# ------------------------------
 COPY . .
 
-# Expose Streamlit default port
-EXPOSE 10000
-
-# Allow Streamlit to run on Render with the correct host/port
+# ------------------------------
+# 7. Streamlit Cloud / Render config
+# ------------------------------
 ENV PORT=10000
 
-# Streamlit config to allow external connections
+# Create the Streamlit config directory
 RUN mkdir -p ~/.streamlit
 
-RUN bash -c 'echo "\
-    [server]\n\
-    headless = true\n\
-    port = 10000\n\
-    enableCORS = false\n\
-    enableXsrfProtection = false\n\
-    " > ~/.streamlit/config.toml'
+# Write config.toml safely (HEREDOC avoids TOML parsing issues)
+RUN cat <<EOF > ~/.streamlit/config.toml
+[server]
+headless = true
+port = 10000
+enableCORS = false
+enableXsrfProtection = false
+EOF
 
-# Start the app
+# ------------------------------
+# 8. Expose port for Render
+# ------------------------------
+EXPOSE 10000
+
+# ------------------------------
+# 9. Run the app
+# ------------------------------
 CMD ["streamlit", "run", "streamlit_app.py"]
-
