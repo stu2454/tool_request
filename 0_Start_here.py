@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # =========================================================
 # GLOBAL CONFIG — WIDE MODE + PAGE TITLE
@@ -55,13 +56,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-# =========================================================
-# SECTION HEADING HELPER
-# =========================================================
+# Section Heading Helper
 def section_heading(text):
     st.markdown(f"<div class='section-header'>{text}</div>", unsafe_allow_html=True)
-
 
 # =========================================================
 # PAGE CONTENT
@@ -74,8 +71,8 @@ st.title("Start Here — Digital-First Pricing Artefacts Prototype")
 # -------------------------
 section_heading("Welcome")
 
-st.markdown(
-"""
+components.html(
+    """
 <div class="card">
     <div class="pill">Introduction</div>
     <h3>Your starting point</h3>
@@ -100,43 +97,42 @@ st.markdown(
         <li>integrate artefacts into calculators, decision tools and AI assistants</li>
         <li>reduce duplicated effort across NDIA teams</li>
         <li>provide analysts and policy teams with reusable data assets</li>
-        <li>deliver on Minister Gallagher’s whole-of-government AI readiness expectations</li>
+        <li>align with whole-of-government AI readiness expectations</li>
     </ul>
 
     <p>This site contains:</p>
 
     <ul>
         <li>the strategic case for moving to structured artefacts</li>
-        <li>a demonstration of what digital artefacts enable</li>
+        <li>a demonstration of early digital prototypes</li>
         <li>a risk & mitigation annex</li>
         <li>a 14-week roadmap for controlled prototyping</li>
-        <li>a breakdown of how this prototype was rapidly built</li>
+        <li>a summary of how this prototype was rapidly built</li>
     </ul>
 
     <p>
     Use the sidebar to navigate between sections. This prototype illustrates what becomes 
     possible when NDIA teams have access to contemporary development environments 
-    (LLMs, embeddings, VS Code, Docker, and rapid prototyping frameworks).
+    (LLMs, embeddings, VS Code, Docker, modern APIs).
     </p>
 </div>
-""",
-    unsafe_allow_html=True
+    """,
+    height=520,
 )
-
 
 # -------------------------
 # NAVIGATION SECTION
 # -------------------------
 section_heading("Navigation")
 
-st.markdown(
-"""
+components.html(
+    """
 <div class="card">
     <h3>How to use this prototype</h3>
 
     <p>
     The sidebar provides access to eight sections that collectively outline the strategic 
-    opportunity, the evidence already generated, and the practical requirements for enabling 
+    opportunity, evidence already generated, and the practical requirements for enabling 
     a digital-first approach to pricing artefacts within the Markets Delivery Branch.
     </p>
 
@@ -156,6 +152,6 @@ st.markdown(
     support modern market stewardship and deliver clearer guidance to the disability community.
     </p>
 </div>
-""",
-    unsafe_allow_html=True
+    """,
+    height=480,
 )
