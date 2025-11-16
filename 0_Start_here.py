@@ -1,13 +1,8 @@
-import os
-from urllib.parse import urlencode
-
-import requests
-from jose import jwt
 import streamlit as st
 import streamlit.components.v1 as components
 
 # =========================================================
-# PAGE CONFIG — MUST BE FIRST STREAMLIT CALL
+# GLOBAL CONFIG — WIDE MODE + PAGE TITLE
 # =========================================================
 st.set_page_config(
     page_title="Start Here — Digital-First Pricing Artefacts Prototype",
@@ -15,132 +10,9 @@ st.set_page_config(
 )
 
 # =========================================================
-# AUTH0 CONFIG
-# =========================================================
-AUTH0_DOMAIN = os.getenv("AUTH0_DOMAIN")              # e.g. "your-tenant-region.auth0.com"
-AUTH0_CLIENT_ID = os.getenv("AUTH0_CLIENT_ID")
-AUTH0_CLIENT_SECRET = os.getenv("AUTH0_CLIENT_SECRET")
-APP_URL = os.getenv("APP_URL")                        # e.g. "https://yourapp.onrender.com"
-
-REDIRECT_URI = APP_URL                                # Must match Auth0 callback URL exactly
-
-
-def auth_config_valid() -> bool:
-    return all(
-        [
-            AUTH0_DOMAIN,
-            AUTH0_CLIENT_ID,
-            AUTH0_CLIENT_SECRET,
-            APP_URL,
-        ]
-    )
-
-
-def auth0_login_url() -> str:
-    params = {
-        "client_id": AUTH0_CLIENT_ID,
-        "response_type": "code",
-        "redirect_uri": REDIRECT_URI,
-        "scope": "openid profile email",
-    }
-    return f"https://{AUTH0_DOMAIN}/authorize?{urlencode(params)}"
-
-
-def get_auth_code_from_query() -> str | None:
-    # Use experimental_get_query_params for broad Streamlit compatibility
-    params = st.experimental_get_query_params()
-    if not params:
-        return None
-    code_list = params.get("code")
-    if not code_list:
-        return None
-    return code_list[0]
-
-
-def exchange_code_for_token(code: str) -> dict:
-    token_url = f"https://{AUTH0_DOMAIN}/oauth/token"
-    data = {
-        "grant_type": "authorization_code",
-        "client_id": AUTH0_CLIENT_ID,
-        "client_secret": AUTH0_CLIENT_SECRET,
-        "code": code,
-        "redirect_uri": REDIRECT_URI,
-    }
-    resp = requests.post(token_url, json=data, timeout=10)
-    if not resp.ok:
-        raise RuntimeError(f"Token request failed: {resp.status_code} {resp.text}")
-    return resp.json()
-
-
-def decode_id_token(id_token: str) -> dict:
-    # We skip signature verification here because this is a front-end style app.
-    # Identity + domain restriction are enforced by Auth0 (and your @ndis.gov.au Action).
-    return jwt.decode(id_token, options={"verify_signature": False})
-
-
-def show_login_page(error_msg: str | None = None):
-    st.markdown("### 🔒 Secure NDIA Access")
-    st.markdown(
-        "This prototype is restricted to NDIA staff. "
-        "Please log in with your **@ndis.gov.au** email address."
-    )
-    if error_msg:
-        st.error(error_msg)
-
-    st.write("")  # spacing
-    st.link_button("Login via Auth0", auth0_login_url())
-    st.stop()
-
-
-def require_login():
-    """
-    Gate this page behind Auth0 login.
-    """
-    if not auth_config_valid():
-        st.error(
-            "Authentication is not configured correctly.\n\n"
-            "Missing one or more of: AUTH0_DOMAIN, AUTH0_CLIENT_ID, "
-            "AUTH0_CLIENT_SECRET, APP_URL.\n\n"
-            "Set these environment variables in Render and redeploy."
-        )
-        st.stop()
-
-    # Already logged in during this browser session
-    if "user" in st.session_state:
-        return
-
-    # Handle Auth0 callback with ?code=...
-    code = get_auth_code_from_query()
-    if code:
-        try:
-            tokens = exchange_code_for_token(code)
-            id_token = tokens.get("id_token")
-            if not id_token:
-                show_login_page("Login failed: missing ID token from Auth0.")
-            user_info = decode_id_token(id_token)
-            st.session_state["user"] = user_info
-            return
-        except Exception as exc:
-            show_login_page(f"Login failed: {exc}")
-
-    # No existing session and no auth code: show login
-    show_login_page()
-
-
-# =========================================================
-# ENFORCE LOGIN FOR THIS PAGE
-# =========================================================
-require_login()
-
-# At this point, we should always have a user dict in session
-user_email = st.session_state.get("user", {}).get("email", "unknown user")
-st.sidebar.markdown(f"**Logged in as:** {user_email}")
-
-# =========================================================
 # GLOBAL STYLING — NDIA BRAND
 # =========================================================
-st.markdown(
-    """
+st.markdown("""
 <style>
 
 .block-container {
@@ -182,15 +54,11 @@ st.markdown(
 }
 
 </style>
-""",
-    unsafe_allow_html=True,
-)
-
+""", unsafe_allow_html=True)
 
 # Section Heading Helper
-def section_heading(text: str):
+def section_heading(text):
     st.markdown(f"<div class='section-header'>{text}</div>", unsafe_allow_html=True)
-
 
 # =========================================================
 # PAGE CONTENT
