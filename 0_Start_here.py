@@ -22,7 +22,7 @@ st.markdown("""
     margin-right: auto;
 }
 
-/* Card */
+/* Card Style */
 .card {
     background: #FFFFFFEE;
     padding: 1.75rem 2rem;
@@ -55,6 +55,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
 # =========================================================
 # SECTION HEADING HELPER
 # =========================================================
@@ -68,58 +69,59 @@ def section_heading(text):
 
 st.title("Start Here — Digital-First Pricing Artefacts Prototype")
 
-
 # -------------------------
 # WELCOME SECTION
 # -------------------------
 section_heading("Welcome")
 
-st.markdown("""
+st.markdown(
+"""
 <div class="card">
     <div class="pill">Introduction</div>
     <h3>Your starting point</h3>
 
     <p>
-    This prototype demonstrates how NDIA pricing artefacts — including the Pricing Arrangements and 
-    Price Limits (PAPL), Code Guides, and Operational Guidance — can evolve from static PDFs 
-    into structured, digital-first information assets designed for reuse, interrogation, and active 
-    market stewardship.
+    This prototype demonstrates how NDIA pricing artefacts — including the Pricing 
+    Arrangements and Price Limits (PAPL), Code Guides, and Operational Guidance — 
+    can evolve from static PDFs into structured, digital-first information assets designed 
+    for reuse, interrogation, and active stewardship of disability support markets.
     </p>
 
     <p>
-    Today, these artefacts are essential but constrained: slow to update, hard to interrogate, 
-    difficult to reuse programmatically, and unable to provide dynamic or audience-specific 
-    guidance. Translating them into structured formats (Markdown, JSON, schemas) unlocks the 
-    potential to:
+    Today, these artefacts are essential but constrained: slow to update, hard to 
+    interrogate, difficult to reuse programmatically, and unable to provide dynamic or 
+    audience-specific guidance. Translating them into structured formats (Markdown, 
+    JSON, schemas) unlocks the potential to:
     </p>
 
     <ul>
         <li>improve accessibility and usability for participants, providers and planners</li>
-        <li>enable real-time search, filtering and query functions</li>
-        <li>integrate artefacts into calculators, validation tools, and AI assistants</li>
-        <li>reduce manual updates and duplicated effort across NDIA teams</li>
-        <li>provide analysts and policy teams with reusable information assets</li>
-        <li>support Minister Gallagher’s whole-of-government direction for AI-ready public sector data</li>
+        <li>enable real-time search, filtering and validation</li>
+        <li>integrate artefacts into calculators, decision tools and AI assistants</li>
+        <li>reduce duplicated effort across NDIA teams</li>
+        <li>provide analysts and policy teams with reusable data assets</li>
+        <li>deliver on Minister Gallagher’s whole-of-government AI readiness expectations</li>
     </ul>
 
-    <p>The site contains:</p>
+    <p>This site contains:</p>
 
     <ul>
         <li>the strategic case for moving to structured artefacts</li>
-        <li>a demonstration of how these artefacts could be used across audiences</li>
-        <li>a detailed risk &amp; mitigation annex</li>
-        <li>a roadmap for an initial 14-week delivery cycle</li>
-        <li>a full breakdown of how this prototype was built</li>
+        <li>a demonstration of what digital artefacts enable</li>
+        <li>a risk & mitigation annex</li>
+        <li>a 14-week roadmap for controlled prototyping</li>
+        <li>a breakdown of how this prototype was rapidly built</li>
     </ul>
 
     <p>
-    Use the left sidebar to navigate between sections.  
-    This prototype illustrates what becomes possible when NDIA teams are given access to 
-    contemporary development environments (LLMs, embeddings, Docker, VS Code, and rapid 
-    prototyping frameworks).
+    Use the sidebar to navigate between sections. This prototype illustrates what becomes 
+    possible when NDIA teams have access to contemporary development environments 
+    (LLMs, embeddings, VS Code, Docker, and rapid prototyping frameworks).
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 
 # -------------------------
@@ -127,30 +129,33 @@ st.markdown("""
 # -------------------------
 section_heading("Navigation")
 
-st.markdown("""
+st.markdown(
+"""
 <div class="card">
     <h3>How to use this prototype</h3>
 
     <p>
-    The sidebar provides access to eight sections that collectively present a robust view of the 
-    opportunity, the early evidence, the stakeholder value, and the practical considerations for 
-    enabling a digital-first approach to pricing artefacts within the Markets Delivery Branch.
+    The sidebar provides access to eight sections that collectively outline the strategic 
+    opportunity, the evidence already generated, and the practical requirements for enabling 
+    a digital-first approach to pricing artefacts within the Markets Delivery Branch.
     </p>
 
     <ul>
         <li><b>Executive Summary</b> — the high-level strategic case</li>
         <li><b>Evidence Showcase</b> — demonstrations already built</li>
-        <li><b>Toolset</b> — what is required to support prototyping</li>
-        <li><b>Detailed Case</b> — the comprehensive justification</li>
-        <li><b>Stakeholder Views</b> — benefits for participants, providers, planners, and policy</li>
-        <li><b>Risk Mitigation</b> — how risks will be managed</li>
-        <li><b>Roadmap</b> — a 14-week phased delivery model</li>
-        <li><b>Development Process</b> — how this site and prototype were built</li>
+        <li><b>Toolset</b> — what environments and tools are required</li>
+        <li><b>Detailed Case</b> — full justification and benefits</li>
+        <li><b>Stakeholder Views</b> — value for participants, providers, planners, policy</li>
+        <li><b>Risk Mitigation</b> — safeguards and governance</li>
+        <li><b>Roadmap</b> — proposed 14-week phased delivery model</li>
+        <li><b>Development Process</b> — how the prototype and site were built</li>
     </ul>
 
     <p>
-    Together, these components demonstrate the strength of a structured, digital-first approach and 
-    the value of supporting controlled prototyping environments within the Markets Delivery Branch.
+    Together, these components demonstrate how a structured, digital-first approach can 
+    support modern market stewardship and deliver clearer guidance to the disability community.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
