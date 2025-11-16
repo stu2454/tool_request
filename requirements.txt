@@ -3,3 +3,6 @@ streamlit==1.40.0
 pandas
 numpy
 pyyaml
+auth0-python
+python-jose
+requests
