@@ -53,7 +53,7 @@ st.markdown("""
     <p>
     Work by colleagues such as Daniel Bridgman — endorsed by Martin Mane — already shows that NDIA can 
     safely explore AI-assisted document interrogation. This request builds on that precedent and extends it 
-    toward **modernising the artefacts themselves**.
+    toward <b>modernising the artefacts themselves</b>.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -81,6 +81,48 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+
+# ================================================================
+# NEW SECTION — Digital PAPL Ecosystem Prototype (repositioned)
+# ================================================================
+section_heading("Digital PAPL Ecosystem Prototype")
+
+st.markdown("""
+<div class="card">
+    <div class="pill">Future State</div>
+    <h3>What a structured, digital-first PAPL ecosystem could enable</h3>
+
+    <p>
+    Once pricing artefacts are maintained in structured formats — Markdown, JSON or schemas — 
+    they can serve as a <b>single authoritative source</b> for multiple internal and external needs.  
+    Rather than separate PDFs, the same structured content can underpin:
+    </p>
+
+    <ul>
+        <li>planner-facing guidance tools</li>
+        <li>participant-friendly explainers and calculators</li>
+        <li>provider decision-support tools</li>
+        <li>market monitoring dashboards</li>
+        <li>search and interrogation interfaces</li>
+        <li>automated validation workflows</li>
+        <li>semantic search and AI assistants</li>
+    </ul>
+
+    <p>
+    The diagram below illustrates how structured artefacts enable a more dynamic, connected 
+    ecosystem — one update to the core artefact immediately flows through to all dependent tools.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+try:
+    st.image(
+        "assets/diagram_ecosystem.png",
+        caption="Digital PAPL ecosystem — one structured source powering multiple tools.",
+        use_column_width=True,
+    )
+except:
+    st.info("Add diagram_ecosystem.png to assets/ to display this image.")
 
 # -------------------------
 # Why a Toolset is Needed
