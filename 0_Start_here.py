@@ -1,5 +1,35 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import os
+
+
+def simple_password_gate():
+    correct_password = os.getenv("APP_PASSWORD")
+    if correct_password is None:
+        st.error("APP_PASSWORD is not configured in Render environment variables.")
+        st.stop()
+
+    if "authenticated" not in st.session_state:
+        st.session_state["authenticated"] = False
+
+    if not st.session_state["authenticated"]:
+        st.markdown("### 🔒 Restricted Access")
+        st.write("Enter the access password to continue.")
+
+        password = st.text_input("Password", type="password")
+
+        if st.button("Submit"):
+            if password == correct_password:
+                st.session_state["authenticated"] = True
+                st.experimental_rerun()
+            else:
+                st.error("Incorrect password.")
+                st.stop()
+
+        st.stop()
+
+simple_password_gate()
+
 
 # =========================================================
 # GLOBAL CONFIG — WIDE MODE + PAGE TITLE
