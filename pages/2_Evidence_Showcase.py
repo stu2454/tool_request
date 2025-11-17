@@ -4,11 +4,11 @@ from auth import password_gate
 password_gate()
 
 # ---------------------------------
-# NDIA heading component (fixed)
+# NDIA heading component — with NDIA Purple (#6D3078)
 # ---------------------------------
 def section_heading(text):
     st.markdown(
-        f"<div class='section-header'>{text}</div>",
+        f"### <span style='color:#6D3078;'>{text}</span>",
         unsafe_allow_html=True
     )
 
