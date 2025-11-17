@@ -4,7 +4,7 @@ from auth import password_gate
 password_gate()
 
 # ---------------------------------
-# FIXED NDIA heading component
+# NDIA heading component (fixed)
 # ---------------------------------
 def section_heading(text):
     st.markdown(
@@ -19,14 +19,15 @@ st.title("Detailed Case for Access")
 # -------------------------
 section_heading("Purpose")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <div class="pill">Purpose</div>
     <h3>Why we are seeking a controlled prototyping environment</h3>
     <p>
-    The Markets Delivery Branch is seeking access to a lightweight, well-governed development environment 
-    to prototype digital-first versions of NDIA’s pricing artefacts. This will help explore how structured 
-    content, modern search tools and simple internal user interfaces can:
+        The Markets Delivery Branch is seeking access to a lightweight, well-governed development environment 
+        to prototype digital-first versions of NDIA’s pricing artefacts. This will help explore how structured 
+        content, modern search tools and simple internal user interfaces can:
     </p>
     <ul>
         <li>reduce manual effort</li>
@@ -35,18 +36,21 @@ st.markdown("""
         <li>strengthen NDIA’s stewardship of disability service markets</li>
     </ul>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # -------------------------
 # Strategic Alignment
 # -------------------------
 section_heading("Strategic Alignment")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <h3>Alignment with Whole-of-Government and internal direction</h3>
     <p>
-    Minister Gallagher’s Whole-of-Government AI Plan emphasises:
+        Minister Gallagher’s Whole-of-Government AI Plan emphasises:
     </p>
     <ul>
         <li>developing structured, machine-readable government information</li>
@@ -55,23 +59,26 @@ st.markdown("""
         <li>prototyping before investing in major programs</li>
     </ul>
     <p>
-    Work by colleagues such as Daniel Bridgman — endorsed by Martin Mane — already shows that NDIA can 
-    safely explore AI-assisted document interrogation. This request builds on that precedent and extends it 
-    toward <b>modernising the artefacts themselves</b>.
+        Work by colleagues such as Daniel Bridgman — endorsed by Martin Mane — already shows that NDIA can 
+        safely explore AI-assisted document interrogation. This request builds on that precedent and extends it 
+        toward <b>modernising the artefacts themselves</b>.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # -------------------------
 # Limitations of Current Artefacts
 # -------------------------
 section_heading("Limitations of Current Artefact Format")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <h3>Why static documents are no longer sufficient</h3>
     <p>
-    PAPL, Code Guides and Operational Guidance are currently maintained as static documents. This creates:
+        PAPL, Code Guides and Operational Guidance are currently maintained as static documents. This creates:
     </p>
     <ul>
         <li>slow, manual updates and reviews</li>
@@ -81,25 +88,28 @@ st.markdown("""
         <li>barriers to active market stewardship</li>
     </ul>
     <p>
-    These limitations make it harder for NDIA to deliver on its stewardship responsibilities.
+        These limitations make it harder for NDIA to deliver on its stewardship responsibilities.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # ================================================================
 # Digital PAPL Ecosystem Prototype
 # ================================================================
 section_heading("Digital PAPL Ecosystem Prototype")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <div class="pill">Future State</div>
     <h3>What a structured, digital-first PAPL ecosystem could enable</h3>
 
     <p>
-    Once pricing artefacts are maintained in structured formats — Markdown, JSON or schemas — 
-    they can serve as a <b>single authoritative source</b> for multiple internal and external needs.  
-    Instead of separate PDFs, the same structured content can underpin:
+        Once pricing artefacts are maintained in structured formats — Markdown, JSON or schemas — 
+        they can serve as a <b>single authoritative source</b> for multiple internal and external needs.  
+        Instead of separate PDFs, the same structured content can underpin:
     </p>
 
     <ul>
@@ -113,17 +123,19 @@ st.markdown("""
     </ul>
 
     <p>
-    The diagram below illustrates how structured artefacts enable a more dynamic, connected 
-    ecosystem — one update to the core artefact immediately flows through to every dependent tool.
+        The diagram below illustrates how structured artefacts enable a more dynamic, connected 
+        ecosystem — one update to the core artefact immediately flows through to every dependent tool.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 try:
     st.image(
         "assets/diagram_ecosystem.png",
         caption="Digital PAPL ecosystem — one structured source powering multiple tools.",
-        use_column_width=True,
+        use_container_width=True
     )
 except:
     st.info("Add diagram_ecosystem.png to assets/ to display this image.")
@@ -133,11 +145,12 @@ except:
 # -------------------------
 section_heading("Why This Work Requires the Toolset")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <h3>Capabilities that standard office tools cannot provide</h3>
     <p>
-    Modernising pricing artefacts requires:
+        Modernising pricing artefacts requires:
     </p>
     <ul>
         <li>running small APIs and servers for prototype UIs</li>
@@ -146,18 +159,21 @@ st.markdown("""
         <li>connecting to approved AI endpoints for semantic search</li>
     </ul>
     <p>
-    These capabilities require a lightweight development environment composed of VS Code, Git, Docker, Python 
-    and controlled access to AWS Bedrock.
+        These capabilities require a lightweight development environment composed of VS Code, Git, Docker, Python 
+        and controlled access to AWS Bedrock.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # -------------------------
 # Governance and Safeguards
 # -------------------------
 section_heading("Governance and Safeguards")
 
-st.markdown("""
+st.markdown(
+    r"""
 <div class="card">
     <h3>How we ensure safety and control</h3>
     <ul>
@@ -169,4 +185,6 @@ st.markdown("""
         <li>model usage controlled through IAM permissions</li>
     </ul>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
