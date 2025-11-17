@@ -3,10 +3,14 @@ import streamlit as st
 from auth import password_gate
 password_gate()
 
-
-# NDIA heading component
+# ---------------------------------
+# FIXED NDIA heading component
+# ---------------------------------
 def section_heading(text):
-    st.markdown(f"### <span style='color:#6D3078;'>{text}</span>", unsafe_allow_html=True)
+    st.markdown(
+        f"<div class='section-header'>{text}</div>",
+        unsafe_allow_html=True
+    )
 
 st.title("Detailed Case for Access")
 
@@ -83,7 +87,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================================================================
-# NEW SECTION — Digital PAPL Ecosystem Prototype (repositioned)
+# Digital PAPL Ecosystem Prototype
 # ================================================================
 section_heading("Digital PAPL Ecosystem Prototype")
 
@@ -95,7 +99,7 @@ st.markdown("""
     <p>
     Once pricing artefacts are maintained in structured formats — Markdown, JSON or schemas — 
     they can serve as a <b>single authoritative source</b> for multiple internal and external needs.  
-    Rather than separate PDFs, the same structured content can underpin:
+    Instead of separate PDFs, the same structured content can underpin:
     </p>
 
     <ul>
@@ -110,7 +114,7 @@ st.markdown("""
 
     <p>
     The diagram below illustrates how structured artefacts enable a more dynamic, connected 
-    ecosystem — one update to the core artefact immediately flows through to all dependent tools.
+    ecosystem — one update to the core artefact immediately flows through to every dependent tool.
     </p>
 </div>
 """, unsafe_allow_html=True)
