@@ -21,7 +21,7 @@ def simple_password_gate():
         if st.button("Submit"):
             if password == correct_password:
                 st.session_state["authenticated"] = True
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Incorrect password.")
                 st.stop()
