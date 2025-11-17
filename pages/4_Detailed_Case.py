@@ -1,5 +1,9 @@
 import streamlit as st
 
+from auth import password_gate
+password_gate()
+
+
 # NDIA heading component
 def section_heading(text):
     st.markdown(f"### <span style='color:#6D3078;'>{text}</span>", unsafe_allow_html=True)
